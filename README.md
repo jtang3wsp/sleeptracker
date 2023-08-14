@@ -3,5 +3,5 @@ A simple mobile app to log overnight sleep as well as sleepiness during the day,
 Able to view the logged data together or toggled to display their respective categories.
 
 # How to run
-- npm install
-- ionic serve
+- `npm install`
+- `ionic serve`
