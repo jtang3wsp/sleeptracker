@@ -1,0 +1,57 @@
+<ion-header id="header">
+  <ion-toolbar>
+    <ion-title>Logs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list id="logList">
+    <ng-container *ngFor="let log of sortSleepLogs()">
+      <ion-card
+        *ngIf="(log.getType() === 'overnight' && showOvernight)
+            || (log.getType() === 'sleepiness' && showSleepiness)"
+      >
+        <ion-card-header>
+          <ion-card-title>{{ log.dateString() }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{ log.timeString() }} <br />
+          {{ log.summaryString() }}
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row id="toggleRow">
+      <ion-col size="6">
+        <ion-item>
+          <ion-label>Overnight</ion-label>
+          <ion-toggle
+            [(ngModel)]="showOvernight"
+            checked="{{showOvernight}}"
+          ></ion-toggle>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item>
+          <ion-label>Sleepiness</ion-label>
+          <ion-toggle
+            [(ngModel)]="showSleepiness"
+            checked="{{showSleepiness}}"
+          ></ion-toggle>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <!-- <ion-row>
+      <ion-item>
+        <ion-button id="delete-btn" (click)="clearLogs()"
+          >Delete logs</ion-button
+        >
+      </ion-item>
+    </ion-row> -->
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,81 @@
+<ion-header id="header">
+  <ion-toolbar>
+    <ion-title>Overnight Sleep</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item id="title">
+    <ion-label>Currently:</ion-label>
+  </ion-item>
+  <ion-item id="currentDate">
+    <ion-label>{{currentDate}}</ion-label>
+  </ion-item>
+  <ion-item id="currentTime">
+    <ion-label>{{currentTime}}</ion-label>
+  </ion-item>
+
+  <ion-item class="wheel">
+    <ion-label>Sleep Date</ion-label>
+    <ion-datetime-button datetime="sleepDate"></ion-datetime-button>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime
+          id="sleepDate"
+          presentation="date"
+          [preferWheel]="true"
+          [(ngModel)]="sleepDate"
+        ></ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </ion-item>
+
+  <ion-item class="wheel">
+    <ion-label>Sleep Time</ion-label>
+    <ion-datetime-button datetime="sleepTime"></ion-datetime-button>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime
+          id="sleepTime"
+          presentation="time"
+          [preferWheel]="true"
+          [(ngModel)]="sleepDate"
+        ></ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </ion-item>
+
+  <ion-item class="wheel">
+    <ion-label>Wake Date</ion-label>
+    <ion-datetime-button datetime="wakeDate"></ion-datetime-button>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime
+          id="wakeDate"
+          presentation="date"
+          [preferWheel]="true"
+          [(ngModel)]="wakeDate"
+        ></ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </ion-item>
+
+  <ion-item class="wheel">
+    <ion-label>Wake Time</ion-label>
+    <ion-datetime-button datetime="wakeTime"></ion-datetime-button>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime
+          id="wakeTime"
+          presentation="time"
+          [preferWheel]="true"
+          [(ngModel)]="wakeDate"
+        ></ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </ion-item>
+
+  <ion-button id="submitButton" expand="full" (click)="addRecord()"
+    >Log Overnight Sleep</ion-button
+  >
+</ion-content>
